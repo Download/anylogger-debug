@@ -40,7 +40,7 @@ require('anylogger-debug')
 
 *main.js*
 ```js
-require('anylogger-debug')
+import 'anylogger-debug'
 ```
 
 ## Logging in the application project
@@ -48,8 +48,8 @@ In your application module code, only use anylogger to stay framework independen
 
 *my-module.js*
 ```js
-var anylogger = require('anylogger')
-var log = anylogger('my-module')
+import anylogger from 'anylogger'
+const log = anylogger('my-module')
 log('Logging is simple!')
 ```
 
@@ -57,13 +57,16 @@ This is helpful if you ever decide to factor out the application module into a s
 
 ## log configuration in the application project
 
+Because `anylogger` is simply using `debug` below the surface, you can 
+
 If you need to control log settings programmatically, do it as you always would:
 
 *main.js*
 ```js
-require('anylogger-debug')
-var debug = require('debug')
+// ...
+import debug from 'debug'
 debug.enable('my-module')
+// ...
 ```
 
 > I suggest using debug's build-in configuration mechanism instead of doing it from code.

@@ -13,7 +13,8 @@
   },
   "keywords": [
     "anylogger",
-    "debug"
+    "debug",
+    "log"
   ],
   "author": "Stijn de Witt",
   "license": "MIT",
