@@ -57,9 +57,11 @@ This is helpful if you ever decide to factor out the application module into a s
 
 ## log configuration in the application project
 
-Because `anylogger` is simply using `debug` below the surface, you can 
+Because `anylogger` is simply using `debug` below the surface, you can use
+all the normal configuration mechanisms available for `debug`.
 
-If you need to control log settings programmatically, do it as you always would:
+If you need to control log settings programmatically, just import `debug` and
+use it directly:
 
 *main.js*
 ```js
