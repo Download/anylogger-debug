@@ -19,7 +19,7 @@ This package is meant for application projects that are using libraries using `a
 Install both `anylogger` and `debug`, as well as this adapter:
 
 ```sh
-npm install anylogger debug anylogger-debug
+npm install --save anylogger debug anylogger-debug
 ```
 
 ## Include in your application project
@@ -71,7 +71,7 @@ debug.enable('my-module')
 // ...
 ```
 
-> I suggest using debug's build-in configuration mechanism instead of doing it from code.
+> I suggest using debug's build-in configuration mechanism via environment variables and localstorage lookup keys instead of doing it from code.
 
 ## Issues
 

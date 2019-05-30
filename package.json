@@ -1,6 +1,6 @@
 {
   "name": "anylogger-debug",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Anylogger adapter for debug",
   "main": "anylogger-debug.js",
   "scripts": {
@@ -23,10 +23,17 @@
   },
   "homepage": "https://github.com/Download/anylogger-debug#readme",
   "dependencies": {
-    "anylogger": "^0.8.0",
+    "anylogger": "^0.10.0",
+    "debug": "^4.1.1"
+  },
+  "peerDependencies": {
+    "anylogger": "^0.10.0",
+    "debug": "^4.1.1"
+  },
+  "devDependencies": {
     "chai": "^4.2.0",
     "gzip-size": "^5.0.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
     "sinon": "^7.2.7",
     "uglify-js": "^3.4.9"
   }
