@@ -16,16 +16,18 @@ This package is meant for application projects that are using libraries using `a
 
 ## Install
 
-Install both `anylogger` and `debug`, as well as this adapter:
+Install this adapter, as well as both `anylogger` and `debug`:
 
 ```sh
-npm install --save anylogger debug anylogger-debug
+npm install --save anylogger-debug anylogger debug
 ```
 
 ## Include in your application project
 This package is meant for application projects. If you are writing a library to be NPM installed into some other project, most likely you should not include any adapter, but instead just use `anylogger` directly.
 
-The anylogger-debug adapter will modify the `anylogger` factory in such a way that the loggers it creates will be logging to `debug`. As such, you should make sure to activate debug mode with the environment variable or localStorage key as usual before expecting to see any output.
+The `anylogger-debug` adapter will modify the `anylogger` factory in such a way that the loggers it creates will be logging to `debug`. 
+
+> When using `debug`, all logging is supressed by default. As such, you should make sure to activate debug mode with the environment variable or localStorage key [as usual](https://www.npmjs.com/package/debug#usage) before expecting to see any output. 
 
 To activate the adapter, include it in your application entry point.
 
@@ -71,7 +73,7 @@ debug.enable('my-module')
 // ...
 ```
 
-> I suggest using debug's build-in configuration mechanism via environment variables and localstorage lookup keys instead of doing it from code.
+> I suggest using `debug`'s build-in configuration mechanism via environment variables and localstorage lookup keys instead of doing it from code.
 
 ## Issues
 

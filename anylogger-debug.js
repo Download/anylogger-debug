@@ -6,5 +6,6 @@ a.ext = function(l,o) {
   o = d(l.name)
   for (v in a.levels)
     l[v] = o
+  l.enabledFor = d.enabled.bind(l, l.name)
   return l;
 };

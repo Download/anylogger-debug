@@ -145,14 +145,27 @@ describe('anylogger([name, [options]]) => log', function() {
       expect(log.error).to.be.a('function')
     })
 
+    it('has a method `enabledFor`', function(){
+      try {
+        var log = anylogger('test')
+        expect(log).to.have.property('enabledFor')
+        expect(log.enabledFor).to.be.a('function')
+        expect(log.enabledFor()).to.equal(false)
+        debug.enable('test')
+        expect(log.enabledFor()).to.equal(true)
+      }
+      finally {
+        debug.disable()
+      }
+    })
+
     it('can be invoked to log a message', function(){
       try {
-        // debug.enable('test')
+        debug.enable('test')
         var log = anylogger('test')
-        sandbox.spy(log, 'log')
         log('message')
-        expect(log.log.callCount).to.equal(1)
-      } 
+        expect(debug.log.callCount).to.equal(1)
+      }
       finally {
         debug.disable()
       }
