@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/anylogger-debug.svg)](https://npmjs.com/package/anylogger-debug)
 [![license](https://img.shields.io/npm/l/anylogger-debug.svg)](https://opensource.org/licenses/MIT)
 [![travis](https://img.shields.io/travis/Download/anylogger-debug.svg)](https://travis-ci.org/Download/anylogger-debug)
-[![greenkeeper](https://img.shields.io/david/Download/anylogger-debug.svg)](https://greenkeeper.io/)
+[![greenkeeper](https://badges.greenkeeper.io/Download/anylogger-debug.svg)](https://greenkeeper.io/)
 ![mind BLOWN](https://img.shields.io/badge/mind-BLOWN-ff69b4.svg)
 
 <sup><sub><sup><sub>.</sub></sup></sub></sup>
