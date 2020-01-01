@@ -1,4 +1,4 @@
-# anylogger-debug
+# anylogger-debug <sub><sup>0.9.0</sup></sub>
 ### Anylogger adapter for debug
 
 [![npm](https://img.shields.io/npm/v/anylogger-debug.svg)](https://npmjs.com/package/anylogger-debug)
@@ -13,6 +13,29 @@
 This is an [anylogger](https://npmjs.com/package/anylogger) adapter for [debug](https://npmjs.com/package/debug).
 
 This package is meant for application projects that are using libraries using `anylogger`. By including this adapter in your project, all libraries using `anylogger` will automatically start to use `debug` as their logging framework.
+
+## Download
+
+* [anylogger-debug.js](https://unpkg.com/anylogger-debug@0.9.0/anylogger-debug.js) 
+  (fully commented source ~5kB)
+* [anylogger-debug.min.js](https://unpkg.com/anylogger-debug@0.9.0/anylogger-debug.min.js) 
+  (minified 184 bytes, gzipped ~[150](#gzip-size) bytes)
+
+
+## CDN
+
+*index.html*
+```html
+<script src="https://unpkg.com/anylogger@0.20.0/anylogger.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@0.9.0/browserified-debug-4.1.1.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@0.9.0/anylogger-debug.min.js"></script>
+<script>(function(){ // IIFE
+  var log = anylogger('index.html')
+  log.info('Logging is simple!')
+  // to see logging, enable it, e.g.:
+  // localStorage.setItem('debug', '*')
+})()</script>
+```
 
 ## Install
 
@@ -84,9 +107,15 @@ to let me know of any problems you find, or questions you may have.
 
 ## Copyright
 
-© 2019 by [Stijn de Witt](https://stijndewitt.com). Some rights reserved.
+© 2020 by [Stijn de Witt](https://stijndewitt.com). Some rights reserved.
 
 
 ## License
 
 Licensed under the [MIT Open Source license](https://opensource.org/licenses/MIT).
+
+## gzip-size
+The GZIP algorithm is available in different flavours and with different 
+possible compression settings. The sizes quoted in this README have been
+measured using [gzip-size](https://npmjs.com/package/gzip-size) 
+by [Sindre Sorhus](https://github.com/sindresorhus), your mileage may vary.
