@@ -1,7 +1,7 @@
 var fs = require('fs')
 var UglifyJS = require('uglify-js')
 var gzipSize = require('gzip-size')
-// be uber-cool and use anylogger to print the logging in the build of anylogger-debug :)
+// be cool and use anylogger to print the logging in the build of anylogger-debug :)
 var log = require('anylogger')('anylogger-debug')
 
 var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
