@@ -1,11 +1,18 @@
 {
   "name": "anylogger-debug",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Anylogger adapter for debug",
   "main": "anylogger-debug.js",
+  "files": [
+    "anylogger-debug.js",
+    "anylogger-debug.min.js",
+    "anylogger-debug.spec.js",
+    "browserified-debug-4.1.1.min.js"
+  ],
   "scripts": {
-    "test": "mocha anylogger-debug.spec.js",
-    "prepare": "npm run test"
+    "build": "cross-env NODE_ENV=production node build.js",
+    "prepare": "npm run test && npm run build",
+    "test": "mocha anylogger-debug.spec.js"
   },
   "repository": {
     "type": "git",
@@ -25,14 +32,17 @@
   "homepage": "https://github.com/download/anylogger-debug#readme",
   "dependencies": {},
   "peerDependencies": {
-    "anylogger": ">=0.19.0",
+    "anylogger": ">=0.20.0",
     "debug": "^4.1.1"
   },
   "devDependencies": {
     "anylogger": "^0.20.0",
     "chai": "^4.2.0",
+    "cross-env": "^6.0.3",
     "debug": "^4.1.1",
+    "gzip-size": "^5.1.1",
     "mocha": "^6.2.2",
-    "sinon": "^8.0.1"
+    "sinon": "^8.0.1",
+    "uglify-js": "^3.7.3"
   }
 }
