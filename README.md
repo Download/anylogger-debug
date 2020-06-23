@@ -1,10 +1,9 @@
-# anylogger-debug <sub><sup>0.10.0</sup></sub>
+# anylogger-debug <sub><sup>1.0.0</sup></sub>
 ### Anylogger adapter for debug
 
 [![npm](https://img.shields.io/npm/v/anylogger-debug.svg)](https://npmjs.com/package/anylogger-debug)
 [![license](https://img.shields.io/npm/l/anylogger-debug.svg)](https://opensource.org/licenses/MIT)
 [![travis](https://img.shields.io/travis/Download/anylogger-debug.svg)](https://travis-ci.org/Download/anylogger-debug)
-[![greenkeeper](https://badges.greenkeeper.io/Download/anylogger-debug.svg)](https://greenkeeper.io/)
 ![mind BLOWN](https://img.shields.io/badge/mind-BLOWN-ff69b4.svg)
 
 <sup><sub><sup><sub>.</sub></sup></sub></sup>
@@ -12,23 +11,25 @@
 ## What is this?
 This is an [anylogger](https://npmjs.com/package/anylogger) adapter for [debug](https://npmjs.com/package/debug).
 
-This package is meant for application projects that are using libraries using `anylogger`. By including this adapter in your project, all libraries using `anylogger` will automatically start to use `debug` as their logging framework.
+This package is meant for application projects that are using libraries using 
+`anylogger`. By including this adapter in your project, all libraries using 
+`anylogger` will automatically start to use `debug` as their logging framework.
 
 ## Download
 
-* [anylogger-debug.js](https://unpkg.com/anylogger-debug@0.10.0/anylogger-debug.js) 
+* [anylogger-debug.js](https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.js) 
   (fully commented source ~5kB)
-* [anylogger-debug.min.js](https://unpkg.com/anylogger-debug@0.10.0/anylogger-debug.min.js) 
-  (minified 184 bytes, gzipped ~[150](#gzip-size) bytes)
+* [anylogger-debug.min.js](https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.min.js) 
+  (minified 278 bytes, gzipped ~[193](#gzip-size) bytes)
 
 
 ## CDN
 
 *index.html*
 ```html
-<script src="https://unpkg.com/anylogger@0.20.0/anylogger.min.js"></script>
-<script src="https://unpkg.com/anylogger-debug@0.10.0/browserified-debug-4.1.1.min.js"></script>
-<script src="https://unpkg.com/anylogger-debug@0.10.0/anylogger-debug.min.js"></script>
+<script src="https://unpkg.com/anylogger@1.0.2/anylogger.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@1.0.0/browserified-debug-4.1.1.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.min.js"></script>
 <script>(function(){ // IIFE
   var log = anylogger('index.html')
   log.info('Logging is simple!')
@@ -46,9 +47,12 @@ npm install --save anylogger-debug anylogger debug
 ```
 
 ## Include in your application project
-This package is meant for application projects. If you are writing a library to be NPM installed into some other project, most likely you should not include any adapter, but instead just use `anylogger` directly.
+This package is meant for application projects. If you are writing a library to
+be NPM installed into some other project, most likely you should not include 
+any adapter, but instead just use `anylogger` directly.
 
-The `anylogger-debug` adapter will modify the `anylogger` factory in such a way that the loggers it creates will be logging to `debug`. 
+The `anylogger-debug` adapter will modify the `anylogger` factory in such a way
+that the loggers it creates will be logging to `debug`. 
 
 > When using `debug`, all logging is supressed by default. As such, you should make sure to activate debug mode with the environment variable or localStorage key [as usual](https://www.npmjs.com/package/debug#usage) before expecting to see any output. 
 
@@ -69,7 +73,8 @@ import 'anylogger-debug'
 ```
 
 ## Logging in the application project
-In your application module code, only use anylogger to stay framework independent:
+In your application module code, only use anylogger to stay framework 
+independent:
 
 *my-module.js*
 ```js
@@ -78,7 +83,8 @@ const log = anylogger('my-module')
 log('Logging is simple!')
 ```
 
-This is helpful if you ever decide to factor out the application module into a separate library.
+This is helpful if you ever decide to factor out the application module into a
+separate library.
 
 ## log configuration in the application project
 

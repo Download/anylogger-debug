@@ -60,3 +60,6 @@ typings/
 # next.js build output
 .next
 /anylogger-debug.min.js
+/anylogger-debug.cjs.js
+/anylogger-debug.esm.js
+/anylogger-debug.iife.js

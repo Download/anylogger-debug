@@ -1,6 +1,6 @@
 var expect = require('chai').expect
 var sinon = require('sinon')
-var adapter = require('./')
+var adapter = require('./anylogger-debug.cjs')
 var anylogger = require('anylogger')
 var debug = require('debug')
 
