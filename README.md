@@ -1,4 +1,4 @@
-# anylogger-debug <sub><sup>1.0.0</sup></sub>
+# anylogger-debug <sub><sup>1.0.1</sup></sub>
 ### Anylogger adapter for debug
 
 [![npm](https://img.shields.io/npm/v/anylogger-debug.svg)](https://npmjs.com/package/anylogger-debug)
@@ -17,10 +17,10 @@ This package is meant for application projects that are using libraries using
 
 ## Download
 
-* [anylogger-debug.js](https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.js) 
+* [anylogger-debug.js](https://unpkg.com/anylogger-debug@1.0.1/anylogger-debug.js) 
   (fully commented source ~5kB)
-* [anylogger-debug.min.js](https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.min.js) 
-  (minified 278 bytes, gzipped ~[193](#gzip-size) bytes)
+* [anylogger-debug.min.js](https://unpkg.com/anylogger-debug@1.0.1/anylogger-debug.min.js) 
+  (minified 135 bytes, gzipped ~[122](#gzip-size) bytes)
 
 
 ## CDN
@@ -28,8 +28,8 @@ This package is meant for application projects that are using libraries using
 *index.html*
 ```html
 <script src="https://unpkg.com/anylogger@1.0.2/anylogger.min.js"></script>
-<script src="https://unpkg.com/anylogger-debug@1.0.0/browserified-debug-4.1.1.min.js"></script>
-<script src="https://unpkg.com/anylogger-debug@1.0.0/anylogger-debug.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@1.0.1/browserified-debug-4.1.1.min.js"></script>
+<script src="https://unpkg.com/anylogger-debug@1.0.1/anylogger-debug.min.js"></script>
 <script>(function(){ // IIFE
   var log = anylogger('index.html')
   log.info('Logging is simple!')
