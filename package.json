@@ -1,23 +1,21 @@
 {
   "name": "anylogger-debug",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Anylogger adapter for debug",
   "src": "./anylogger-debug.js",
   "main": "./anylogger-debug.cjs.js",
-  "module": "./anylogger-debug.esm.js",
   "iife": "./anylogger-debug.iife.js",
   "min": "./anylogger-debug.min.js",
   "spec": "./anylogger-debug.spec.js",
   "files": [
     "anylogger-debug.js",
-    "anylogger-debug.esm.js",
     "anylogger-debug.cjs.js",
     "anylogger-debug.iife.js",
     "anylogger-debug.min.js",
     "anylogger-debug.spec.js",
-    "test.html",
-    "browserified-debug-4.1.1.min.js"
+    "test.html"
   ],
+  "unpkg": "anylogger-debug.min.js",
   "scripts": {
     "build": "npm run test -s && npm run minify -s && npm run docs -s",
     "docs": "cross-env NODE_ENV=production node build.js docs",
@@ -43,8 +41,8 @@
   },
   "homepage": "https://github.com/download/anylogger-debug#readme",
   "dependencies": {
-    "anylogger": "^1.0.2",
-    "debug": "^4.1.1"
+    "anylogger": "^1.0.5",
+    "debug": "^4.3.1"
   },
   "peerDependencies": {
     "anylogger": "^1.0.1",
@@ -53,11 +51,11 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "cross-env": "^7.0.2",
-    "gzip-size": "^5.1.1",
-    "mocha": "^8.0.1",
-    "rollup": "^2.18.0",
+    "gzip-size": "^6.0.0",
+    "mocha": "^8.2.1",
+    "rollup": "^2.33.3",
     "rollup-plugin-re": "^1.0.7",
-    "sinon": "^9.0.2",
-    "uglify-js": "^3.10.0"
+    "sinon": "^9.2.1",
+    "uglify-js": "^3.11.6"
   }
 }

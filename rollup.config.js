@@ -5,9 +5,6 @@ export default [
 	{
 		input: pkg.src,
 		output: [
-      // ES module build
-			{ file: pkg.module, format: 'esm', strict: false },
-
       // commonjs build
 			{ file: pkg.main,  format: 'cjs', strict: false },
 		],
@@ -24,17 +21,17 @@ export default [
 			// remove import bloat from iife bundle
 			replace({
 				patterns: [
-					{ 
-						match: /anylogger-debug/, 
-						test: 'import anylogger from \'anylogger\'', 
+					{
+						match: /anylogger-debug/,
+						test: 'import anylogger from \'anylogger\'',
 						replace: '',
 					}, {
-						match: /anylogger-debug/, 
-						test: 'import debug from \'debug\'', 
+						match: /anylogger-debug/,
+						test: 'import debug from \'debug\'',
 						replace: '',
 					},
 				]
 			})
-		],		
+		],
 	},
 ];
