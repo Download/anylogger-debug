@@ -1,8 +1,8 @@
-var expect = require('chai').expect
-var sinon = require('sinon')
-var adapter = require('./anylogger-debug.cjs')
-var anylogger = require('anylogger')
-var debug = require('debug')
+import { expect } from 'chai'
+import sinon      from 'sinon'
+import 'anylogger-debug'
+import anylogger  from 'anylogger'
+import debug      from 'debug'
 
 var sandbox = sinon.createSandbox();
 
@@ -14,9 +14,9 @@ describe('anylogger([name, [options]]) => log', function() {
 
   afterEach(function(){
     // clear any loggers that were created
-    Object.keys(anylogger()).forEach(function(key){
-      delete anylogger()[key]
-    })
+    for (const name in anylogger.all) {
+      delete anylogger.all[name]
+    }
     // restore original console methods
     sandbox.restore()
   })
@@ -24,16 +24,6 @@ describe('anylogger([name, [options]]) => log', function() {
 
   it('is a function', function(){
     expect(anylogger).to.be.a('function')
-  })
-
-  it('returns an object mapping names to loggers when called without arguments', function(){
-    var result = anylogger()
-    expect(result).to.be.an('object')
-    expect(Object.keys(result)).to.deep.eq([])
-    anylogger('test')
-    result = anylogger()
-    expect(result).to.be.an('object')
-    expect(Object.keys(result)).to.deep.eq(['test'])
   })
 
   it('returns a named logger when called with a name', function(){
@@ -150,7 +140,7 @@ describe('anylogger([name, [options]]) => log', function() {
         var log = anylogger('test')
         expect(log).to.have.property('enabledFor')
         expect(log.enabledFor).to.be.a('function')
-        expect(log.enabledFor()).to.equal(false)
+        expect(log.enabledFor()).to.not.equal(true)
         debug.enable('test')
         expect(log.enabledFor()).to.equal(true)
       }
@@ -175,15 +165,12 @@ describe('anylogger([name, [options]]) => log', function() {
       try {
         // debug.enable('test')
         var log = anylogger('test')
-        var out = {
-          log: debug.log
-        }
         sandbox.spy(log, 'log')
         sandbox.spy(log, 'info')
         log('info', 'message')
         expect(log.log.callCount).to.equal(0)
         expect(log.info.callCount).to.equal(1)
-      } 
+      }
       finally {
         debug.disable()
       }

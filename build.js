@@ -1,8 +1,11 @@
-var fs = require('fs')
-var UglifyJS = require('uglify-js')
-var gzipSize = require('gzip-size')
-// be cool and use anylogger to print the logging in the build of anylogger-debug :)
-var log = require('anylogger')('anylogger-debug')
+import fs from 'fs'
+import UglifyJS from 'uglify-js'
+import { gzipSizeSync } from 'gzip-size'
+// be cool and use anylogger-debug to print the logging in the build of anylogger-debug :)
+import 'anylogger-debug';
+import anylogger from 'anylogger'
+
+const log = anylogger('anylogger-debug')
 
 var [ processName, script, command, ...args ] = process.argv
 var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
@@ -24,28 +27,27 @@ var v = pkg.version
   }
 
   var min = data.length
-  var gzip = gzipSize.sync(data)
+  var gzip = gzipSizeSync(data)
 
   if (!command || command == 'minify') {
     log('info', 'created ' + pkg.min + ' (' + min + 'B, gzipped ~' + gzip + 'B)')
   }
 
-  var av = pkg.dependencies.anylogger.substring(1)
-  var dv = pkg.dependencies.debug.substring(1)
+  var av = pkg.devDependencies.anylogger.substring(1)
+  var dv = pkg.devDependencies.debug.substring(1)
 
   if (!command || command == 'docs') {
     var readme = fs.readFileSync('README.md', 'utf-8')
-    readme = readme.replace(/minified \d\d\d bytes/g, 'minified ' + min + ' bytes')
+    readme = readme.replace(/minified \d\d\d bytes/g, `minified ${min} bytes`)
     readme = readme.replace(/\[\d\d\d\]\(#gzip-size\)/g, '[' + gzip + '](#gzip-size)')
-    readme = readme.replace(/\<sub\>\<sup\>\d(\d)?\.\d(\d)?\.\d(\d)?\<\/sup\>\<\/sub\>/g, `<sub><sup>${v}</sup></sub>`)
-    readme = readme.replace(/\@\d(\d)?\.\d(\d)?\.\d(\d)?\//g, `@${v}/`)
-    readme = readme.replace(/anylogger\@\d(\d)?\.\d(\d)?\.\d(\d)?\//g, `anylogger@${av}/`)
-    readme = readme.replace(/\>\=\d(\d)?\.\d(\d)?\.\d(\d)?/g, `>=${v}`)
+    readme = readme.replace(/\<sub\>\<sup\>\d(\d)?\.\d(\d)?\.\d(\d)?(-([a-zA-Z0-9\.])*)?\<\/sup\>\<\/sub\>/g, `<sub><sup>${v}</sup></sub>`)
+    readme = readme.replace(/anylogger-debug\@\d(\d)?\.\d(\d)?\.\d(\d)?(-([a-zA-Z0-9\.])*)?\//g, `anylogger-debug@${v}/`)
+    readme = readme.replace(/anylogger\@\d(\d)?\.\d(\d)?\.\d(\d)?(-([a-zA-Z0-9\.])*)?\//g, `anylogger@${av}/`)
     fs.writeFileSync('README.md', readme, 'utf8')
     log.info('updated readme')
     var html = fs.readFileSync('test.html', 'utf-8')
-    html = html.replace(/anylogger-debug \d(\d)?\.\d(\d)?\.\d(\d)?/g, `anylogger-debug ${v}`)
-    html = html.replace(/anylogger\@\d(\d)?\.\d(\d)?\.\d(\d)?\//g, `anylogger@${av}/`)
+    html = html.replace(/anylogger-debug \d(\d)?\.\d(\d)?\.\d(\d)?(-([a-zA-Z0-9\.\-])*)?/g, `anylogger-debug ${v}`)
+    html = html.replace(/anylogger\@\d(\d)?\.\d(\d)?\.\d(\d)?(-([a-zA-Z0-9\.\-])*)?\//g, `anylogger@${av}/`)
     html = html.replace(/debug-\d(\d)?\.\d(\d)?\.\d(\d)?/g, `debug-${dv}`)
     fs.writeFileSync('test.html', html, 'utf8')
     log.info('updated test.html')
